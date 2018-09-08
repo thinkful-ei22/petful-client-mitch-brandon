@@ -1,0 +1,30 @@
+
+.container{
+    max-width: 900px;
+    margin: auto;
+}
+
+button{
+    width: 100px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 90px;
+}
+
+button:hover{
+    background-color: #383;
+}
+
+dt {
+    float: left;
+    clear: left;
+    width: 50px;
+    font-weight: bold;
+    color: #555;
+  }
+ 
+  dd {
+    margin: 0 0 0 60px;
+    padding: 0 0 0.5em 0;
+  }

@@ -15,7 +15,7 @@ export const fetchDogError = error => ({
   error
 });
 export const fetchDog = () => dispatch => {
-  return fetch(`${BASE_URL}/dogs`)
+  return fetch(`${BASE_URL}/dog`)
     .then(res => {
       if (!res.ok) {
         if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -45,7 +45,7 @@ export const adoptDogError = error => ({
 });
 export const adoptDog = () => dispatch => {
   dispatch(adoptDogRequest());
-  return fetch(`${BASE_URL}/dogs`, { method: 'DELETE' })
+  return fetch(`${BASE_URL}/dog`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
         if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -53,7 +53,7 @@ export const adoptDog = () => dispatch => {
         }
         return Promise.reject({ code: res.status, message: res.statusText });
       }
-      return res.json();
+      return res;
     })
     .then(dog => dispatch(adoptDogSuccess(dog)))
     .then(() => dispatch(fetchDog()))

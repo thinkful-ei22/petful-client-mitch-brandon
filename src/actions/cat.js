@@ -15,7 +15,7 @@ export const fetchCatError = error => ({
   error
 });
 export const fetchCat = () => dispatch => {
-  return fetch(`${BASE_URL}/cats`)
+  return fetch(`${BASE_URL}/cat`)
     .then(res => {
       if (!res.ok) {
         if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -45,7 +45,7 @@ export const adoptCatError = error => ({
 });
 export const adoptCat = () => dispatch => {
   dispatch(adoptCatRequest());
-  return fetch(`${BASE_URL}/cats`, { method: 'DELETE' })
+  return fetch(`${BASE_URL}/cat`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
         if (res.headers.has('content-type') && res.headers.get('content-type').startsWith('application/json')) {
@@ -53,7 +53,7 @@ export const adoptCat = () => dispatch => {
         }
         return Promise.reject({ code: res.status, message: res.statusText });
       }
-      return res.json();
+      return res;
     })
     .then(cat => dispatch(adoptCatSuccess(cat)))
     .then(() => dispatch(fetchCat()))

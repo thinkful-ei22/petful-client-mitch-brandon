@@ -1,24 +1,24 @@
 import React from 'react';
+import './Pet.css';
 //backend provides one animal at a time, once you hit adopt it activates delete and 
 // fetches next animal from the queue
 export default function Pet(props) {
-  console.log(props.petToAdopt);
   return (
     <section className="petToAdopt">
       <header>
-        <h1>{props.petToAdopt[1].name}</h1>
-        <img src={props.petToAdopt[1].imageURL} alt={props.petToAdopt[1].imageDescription}/>
+        <h1>{props.petToAdopt.name}</h1>
+        <img src={props.petToAdopt.imageURL} alt={props.petToAdopt.imageDescription}/>
       </header>
       <main>
         <dl>
           <dt>Gender</dt>
-          <dd>{props.petToAdopt[1].sex}</dd>
+          <dd>{props.petToAdopt.sex}</dd>
           <dt>Age</dt>
-          <dd>{props.petToAdopt[1].age}</dd>
+          <dd>{props.petToAdopt.age}</dd>
           <dt>Breed</dt>
-          <dd>{props.petToAdopt[1].breed}</dd>
+          <dd>{props.petToAdopt.breed}</dd>
           <dt>Story</dt>
-          <dd>{props.petToAdopt[1].story}</dd>
+          <dd>{props.petToAdopt.story}</dd>
         </dl>
         <button type="button" onClick={() => props.onAdoptPet()}>Adopt</button>
       </main>

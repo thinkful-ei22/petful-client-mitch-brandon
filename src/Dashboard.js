@@ -2,17 +2,16 @@ import React from 'react';
 import Pet from './components/Pet';
 import {connect} from 'react-redux';
 import actions from './actions';
+import './Dashboard.css';
 
 export class Dashboard extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(actions.fetchCat());
     this.props.dispatch(actions.fetchDog());
   }
 
   render() {
-    console.log('props:', this.props);
-
-    if (this.props.catToAdopt === null || this.props.dogToAdopt === null){
+    if(!this.props.catToAdopt || !this.props.dogToAdopt){
       return <h2>Loading</h2>;
     } else {
       return (
@@ -20,13 +19,14 @@ export class Dashboard extends React.Component {
           <Pet petToAdopt={this.props.catToAdopt} onAdoptPet={() => this.props.dispatch(actions.adoptCat())} />
           <Pet petToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.props.dispatch(actions.adoptDog())} />
         </div>
-      );}
+      );
+    }
   }
 }
 
 export const mapStateToProps = state => ({
-  catToAdopt: state.catReducer,
-  dogToAdopt: state.dogReducer
+  catToAdopt: state.catReducer.data,
+  dogToAdopt: state.dogReducer.data
 });
 
 export default connect(mapStateToProps)(Dashboard);
