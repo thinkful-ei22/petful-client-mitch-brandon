@@ -11,10 +11,11 @@ button{
     padding: 10px;
     border-radius: 90px;
     margin-bottom: 25px;
+    border-color: #272727;
 }
 
 button:hover{
-    background-color: #383;
+    background: linear-gradient(to bottom, #febbbb 0%,#fe9090 45%,#ff5c5c 100%);
 }
 
 dt {
@@ -22,7 +23,7 @@ dt {
     clear: left;
     width: 50px;
     font-weight: bold;
-    color: #555;
+    color: ##272727;
   }
  
   dd {

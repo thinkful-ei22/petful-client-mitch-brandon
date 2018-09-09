@@ -1,11 +1,15 @@
 
 .petToAdopt{
+    font-style: italic;
+    font-smooth: auto;
     max-width: 400px;
     display: inline-block;
     margin: 50px;
     padding-left: 50px;
     padding-right: 50px;
-    border: 1px double black;
+    border: 1px double #272727;
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #d2ff52 0%,#91e842 100%);
 }
 
 .petToAdopt img{
